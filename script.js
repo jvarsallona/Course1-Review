@@ -40,6 +40,10 @@ animals[1].append(catVoteBtn)
 
 let FishGoldVotesCell = document.querySelector("#fish-votes")
 
+let fishVotes = localStorage.getItem("fish-votes")
+if (fishVotes) {
+    FishGoldVotesCell.textContent = fishVotes; 
+}
 
 FishGoldVoteBtn = document.createElement("button")
 FishGoldVoteBtn.textContent = "Vote for Fish Gold"
@@ -48,6 +52,7 @@ FishGoldVoteBtn.addEventListener('click', function(e) {
     let FishGoldVotesCount = parseInt(FishGoldVotesCell.textContent);
     FishGoldVotesCount = FishGoldVotesCount + 1;
     FishGoldVotesCell.textContent = FishGoldVotesCount;
+    localStorage.setItem("fish-votes", FishGoldVotesCount)
 });
 
 animals[2].append(FishGoldVoteBtn)
